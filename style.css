@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+      margin: 0;
+    }
+
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
+
+    .dark-mode ul {
+      background-color: #111;
+    }
+
+    .dark-mode ul li a {
+      color: #f5f5f5;
+    }
+
+    .dark-mode ul li a:hover,
+    .dark-mode ul li a:focus {
+      background-color: #222;
+    }
+
+    .dark-mode input,
+    .dark-mode label {
+      color: #f5f5f5;
+      background-color: #2c2c2c;
+    }
+
+    .dark-mode input[type="checkbox"] {
+      accent-color: #1abc9c;
+    }
+
+    button {
+      background-color: #34495e;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #2c3e50;
+    }
+
+    ul li a {
+      display: block;
+      color: white;
+      padding: 20px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    ul li a:hover {
+      background-color: #34495e;
+    }
+
+    ul li a:focus {
+      background-color: #1abc9c;
+    }
+
+    main {
+      margin-left: 220px;
+      padding: 40px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="bible verse generater.html">Daily Verse</a></li>
+    <li><a href="bible.html">Bible</a></li>
+    <li><a href="bible_plans.html">Bible Plans</a></li>
+    <li><a href="login.html">Login Page</a></li>
+  </ul>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Divine Pages</h1>
+    <h2>Enter your login info</h2>
+
+    <form action="#" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Not registered?
+      <a href="#" style="text-decoration: none;">Create an account</a>
+    </p>
+
+    <!-- Dark Mode Toggle -->
+    <label>
+      <input type="checkbox" id="darkModeToggle"> Enable Dark Mode
+    </label>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode', toggle.checked);
+    });
+  </script>
+</body>
+
+</html>
