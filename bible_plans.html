@@ -3,137 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bible Explorer</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Bible Plans</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      padding: 40px;
-      margin: 0;
-      background: #f4f4f9;
-      color: #333;
-      transition: background 0.3s, color 0.3s;
+      background-color: #f4f4f9;
     }
 
-    .dark-mode {
-      background: #1e1e2f;
-      color: #f1f1f1;
-    }
-
-    .ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background-color: #2c3e50;
-    }
-
-    .ul li a {
-      display: block;
-      padding: 20px;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    .ul li a:hover {
-      background-color: #34495e;
-    }
-
-    .dark-mode .ul {
-      background-color: #121212;
-    }
-
-    .dark-mode .ul li a:hover {
-      background-color: #1f1f1f;
-    }
-
-    main {
-      margin-left: 220px;
-    }
-
-    .dark-toggle {
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .dark-toggle label {
-      font-size: 14px;
+    .navbar a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
     }
-    .dark-mode-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #34495e;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    user-select: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
 
-  .dark-mode-button:hover {
-    background-color: #2f4356;
-  }
+    .navbar a:hover {
+      color: #d35400;
+    }
 
-  .dark-mode-button input[type="checkbox"] {
-    display: none; /* hide the default checkbox */
-  }
+    .hero {
+      padding-top: 120px;
+      padding: 120px 40px 40px;
+      background: linear-gradient(to bottom, #888, #666);
+      min-height: 100vh;
+      color: #fff;
+      text-align: center;
+    }
 
-  /* Show some visual indicator when checked */
-  .dark-mode-button input[type="checkbox"]:checked + span {
-    background-color: #1abc9c;
-    border-radius: 4px;
-    padding: 4px 8px;
-  }
+    .plans-container {
+      background-color: white;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .plan {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 5px solid #34495e;
+      background-color: #fdfdfd;
+      border-radius: 6px;
+      text-align: left;
+    }
+
+    .plan h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
-      <ul class="ul">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="bible verse generater.html">Daily Verse</a></li>
-    <li><a href="bible.html">Bible</a></li>
-    <li><a href="bible_plans.html">Bible Plans</a></li>
-    <li><a href="login.html">login page</a></li>
-        </ul>
-  <main>
-    <div class="dark-toggle">
-      <h1 class="text-2xl font-bold">Bible plans</h1>
-     <label class="dark-mode-button">
-  <input type="checkbox" id="darkModeToggle" />
-  <span>Dark Mode</span>
-</label>
+  <div class="navbar">
+    <div class="logo text-xl font-bold text-orange-700">Bible Explorer</div>
+    <div>
+      <a href="home.html">Home</a>
+      <a href="bible verse generater.html">Daily Verse</a>
+      <a href="bible.html">Bible</a>
+      <a href="bible_plans.html">Bible Plans</a>
+      <a href="login.html">Login</a>
     </div>
+  </div>
 
-    
-    <p>
-        Welcome to the bible plans you can pick plans or make one
+  <section class="hero">
+    <h1 class="text-4xl font-bold mb-4">Bible Reading Plans</h1>
+    <div class="plans-container">
+      <div class="plan">
+        <h2>7-Day Encouragement Plan</h2>
+        <p>A week of uplifting verses to remind you of God's love and promises.</p>
+        <ul>
+          <li>Day 1: Joshua 1:9</li>
+          <li>Day 2: Psalm 34:17-18</li>
+          <li>Day 3: Isaiah 41:10</li>
+          <li>Day 4: Romans 8:28</li>
+          <li>Day 5: Philippians 4:6-7</li>
+          <li>Day 6: John 16:33</li>
+          <li>Day 7: Hebrews 10:23</li>
+        </ul>
+      </div>
 
-    </p>
-  </main>
+      <div class="plan">
+        <h2>30-Day New Testament Journey</h2>
+        <p>Read through key teachings and miracles of Jesus across the New Testament.</p>
+        <p>Includes passages from Matthew, Mark, Luke, John, and Acts.</p>
+      </div>
 
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-
-    
-    if (localStorage.getItem('dark-mode') === 'true') {
-      document.body.classList.add('dark-mode');
-      toggle.checked = true;
-    }
-
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('dark-mode', toggle.checked);
-    });
-  </script>
+      <div class="plan">
+        <h2>Create Your Own Plan</h2>
+        <p>Choose books and chapters that speak to your heart and build your own daily walk with God.</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
