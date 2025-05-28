@@ -4,216 +4,148 @@
   <meta charset="UTF-8" />
   <title>Bible Explorer</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
-      background: #f4f4f9;
-      color: #333;
-    }
-
-    .dark-mode {
-      background-color: #1e1e1e;
-      color: #f5f5f5;
-    }
-
-    .dark-mode ul {
-      background-color: #111;
-    }
-
-    .dark-mode ul li a {
-      color: #f5f5f5;
-    }
-
-    .dark-mode ul li a:hover,
-    .dark-mode ul li a:focus {
-      background-color: #222;
-    }
-
-    .dark-mode select,
-    .dark-mode label {
-      color: #f5f5f5;
-      background-color: #2c2c2c;
-    }
-
-    .dark-mode #verse-display .version-column {
-      background-color: #2b2b2b;
-      color: #f5f5f5;
-    }
-
-    ul {
-      list-style-type: none;
       margin: 0;
-      padding: 0;
-      width: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background-color: #2c3e50;
+      background-color: #f4f4f9;
     }
 
-    ul li a {
-      display: block;
-      color: white;
-      padding: 20px;
-      text-decoration: none;
-      text-align: center;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    ul li a:hover {
-      background-color: #34495e;
-    }
-
-    ul li a:focus {
-      background-color: #1abc9c;
-    }
-
-    main {
-      margin-left: 220px;
-      padding: 20px;
-    }
-
-    select {
-      margin: 0 10px 10px 0;
-      padding: 5px;
-    }
-
-    #verse-display {
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 20px;
       display: flex;
-      gap: 40px;
-      margin-top: 20px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .navbar a:hover {
+      color: #d35400;
+    }
+
+    .hero {
+      padding-top: 100px;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(to bottom, #888, #666);
+      color: #000;
+      min-height: 100vh;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-family: 'Monoton', cursive;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .controls {
+      background-color: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .controls label,
+    .controls select {
+      display: inline-block;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .verse-display {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
     .version-column {
       flex: 1;
-      background: white;
-      border-radius: 10px;
+      min-width: 300px;
+      background: #fff;
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
-    .version-column h2 {
-      margin-bottom: 10px;
-    }
-
-    .version-column p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    /* Dark Mode Button Styles - matching Bible Verse Generator button style */
-    #darkModeButton {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #34495e;
-      border: none;
-      color: white;
-      padding: 10px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-      z-index: 1000;
-    }
-
-    #darkModeButton:hover {
-      background-color: #2f4356;
-    }
-
   </style>
 </head>
 <body>
-        <ul class="ul">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="bible verse generater.html">Daily Verse</a></li>
-    <li><a href="bible.html">Bible</a></li>
-    <li><a href="bible_plans.html">Bible Plans</a></li>
-    <li><a href="login.html">login page</a></li>
-        </ul>
+  <div class="navbar">
+    <div class="logo text-xl font-bold text-orange-700">Bible Explorer</div>
+    <div>
+      <a href="home.html">Home</a>
+      <a href="bible verse generater.html">Daily Verse</a>
+      <a href="bible.html">Bible</a>
+      <a href="bible_plans.html">Bible Plans</a>
+      <a href="login.html">Login</a>
+    </div>
+  </div>
 
-  <main>
-    <h1 class="text-2xl font-bold mb-4">Bible Explorer</h1>
+  <section class="hero">
+    <h1>Bible Explorer</h1>
+    <div class="controls">
+      <div class="mb-4">
+        <label>Main Language:</label>
+        <select id="languageSelectMain" onchange="loadVersions('main')">
+          <option value="eng" selected>English</option>
+          <option value="spa">Spanish</option>
+        </select>
 
-    <div class="mb-4">
-      <label>Main Language:</label>
-      <select id="languageSelectMain" onchange="loadVersions('main')">
-        <option value="eng" selected>English</option>
-        <option value="spa">Spanish</option>
-        <option value="fra">French</option>
-        <option value="deu">German</option>
-        <option value="por">Portuguese</option>
-        <option value="ita">Italian</option>
-        <option value="hin">Hindi</option>
-        <option value="tam">Tamil</option>
-        <option value="tel">Telugu</option>
-        <option value="kan">Kannada</option>
-        <option value="mal">Malayalam</option>
-      </select>
+        <label>Main Version:</label>
+        <select id="versionSelectMain" onchange="loadBooks()"></select>
+      </div>
 
-      <label>Main Version:</label>
-      <select id="versionSelectMain" onchange="loadBooks()"></select>
+      <div class="mb-4">
+        <label>Parallel Language:</label>
+        <select id="languageSelectParallel" onchange="loadVersions('parallel')">
+          <option value="eng" selected>English</option>
+          <option value="spa">Spanish</option>
+        </select>
+
+        <label>Parallel Version:</label>
+        <select id="versionSelectParallel"></select>
+
+        <label>
+          <input type="checkbox" id="parallelToggle" onchange="loadVerses()"> Show Parallel
+        </label>
+      </div>
+
+      <div class="mb-4">
+        <label>Book:</label>
+        <select id="bookSelect" onchange="loadChapters()"></select>
+
+        <label>Chapter:</label>
+        <select id="chapterSelect" onchange="loadVerses()"></select>
+      </div>
     </div>
 
-    <div class="mb-4">
-      <label>Parallel Language:</label>
-      <select id="languageSelectParallel" onchange="loadVersions('parallel')">
-        <option value="eng" selected>English</option>
-        <option value="spa">Spanish</option>
-        <option value="fra">French</option>
-        <option value="deu">German</option>
-        <option value="por">Portuguese</option>
-        <option value="ita">Italian</option>
-        <option value="hin">Hindi</option>
-        <option value="tam">Tamil</option>
-        <option value="tel">Telugu</option>
-        <option value="kan">Kannada</option>
-        <option value="mal">Malayalam</option>
-      </select>
-
-      <label>Parallel Version:</label>
-      <select id="versionSelectParallel"></select>
-
-      <label>
-        <input type="checkbox" id="parallelToggle" onchange="loadVerses()"> Show Parallel
-      </label>
-    </div>
-
-    <div class="mb-4">
-      <label>Book:</label>
-      <select id="bookSelect" onchange="loadChapters()"></select>
-
-      <label>Chapter:</label>
-      <select id="chapterSelect" onchange="loadVerses()"></select>
-    </div>
-
-    <div id="verse-display"></div>
-  </main>
-
-  <button id="darkModeButton" onclick="toggleDarkMode()">Dark Mode</button>
+    <div class="verse-display" id="verse-display"></div>
+  </section>
 
   <script>
     const API_KEY = "bc02c9cb825b61afb2a4ce5d743c4920";
     const BASE_URL = "https://api.scripture.api.bible/v1";
-    const NKJV_ID = "de4e12af7f28f599-01";
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const btn = document.getElementById('darkModeButton');
-      if(document.body.classList.contains('dark-mode')){
-        btn.textContent = 'Light Mode';
-      } else {
-        btn.textContent = 'Dark Mode';
-      }
-    }
 
     async function loadVersions(type) {
       const langSelect = document.getElementById("languageSelect" + (type === "main" ? "Main" : "Parallel"));
@@ -232,10 +164,6 @@
       filtered.forEach(bible => {
         versionSelect.add(new Option(bible.name, bible.id));
       });
-
-      if (langCode === "eng") {
-        versionSelect.add(new Option("NKJV (Bolls)", NKJV_ID));
-      }
 
       versionSelect.selectedIndex = 0;
 
