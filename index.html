@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Divine Pages</title>
-
-  
   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
-
   <style>
     body {
       margin: 0;
@@ -14,76 +11,154 @@
       background-color: #f4f4f9;
     }
 
-    h1 {
-      margin-top: 60px;
-      font-size: 4rem;
-      color: #000000; /* bright neon pink for disco vibe */
-      font-family: 'Monoton', cursive;
-      
-      letter-spacing: 0.1em;
-    }
-
-    @keyframes fadeInOut {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      50% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
-    .fadeInOut {
-      animation: fadeInOut 3s ease-in-out infinite;
-    }
-
-    ul.ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 200px;
-      position: fixed;
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
       top: 0;
-      left: 0;
-      height: 100%;
-      background-color: #2c3e50;
+      z-index: 1000;
     }
 
-    ul.ul li a {
-      display: block;
-      color: white;
-      padding: 20px;
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d35400;
+    }
+
+    .navbar .nav-links a {
+      margin-left: 20px;
       text-decoration: none;
-      text-align: center;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
+      color: #333;
+      font-weight: 500;
     }
 
-    ul.ul li a:hover {
-      background-color: #34495e;
+    .navbar .nav-links a:hover {
+      color: #d35400;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?bible') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 30px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-family: 'Monoton', cursive;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .hero .buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .hero .buttons button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero .start {
+      background-color: #d35400;
+      color: white;
+    }
+
+    .hero .start:hover {
+      background-color: #b03e00;
+    }
+
+    .hero .learn {
+      background-color: white;
+      color: #333;
+    }
+
+    .hero .learn:hover {
+      background-color: #f0f0f0;
+    }
+
+    #verseDisplay {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 
 <body>
-  <h1 align="center" class="fadeInOut">
-    Welcome 
-    to 
-    the 
-    Divine 
-    Pages
-  </h1>
 
-      <ul class="ul">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="bible verse generater.html">Daily Verse</a></li>
-    <li><a href="bible.html">Bible</a></li>
-    <li><a href="bible_plans.html">Bible Plans</a></li>
-    <li><a href="login.html">login page</a></li>
+  <div class="navbar">
+    <div class="logo">📖 Divine Pages</div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="#">Daily Verse</a>
+      <a href="bible.html">Bible</a>
+      <a href="bible_plans.html">Plans</a>
+      <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Discover the Word of God</h1>
+    <p>
+      "For the word of God is alive and active. Sharper than any double-edged sword..."<br>
+      — Hebrews 4:12
+    </p>
+    <div class="buttons">
+      <button class="start" onclick="getVerse()">Get Verse</button>
+      <button class="learn">Learn More</button>
+    </div>
+    <div id="verseDisplay"><em>Click "Get Verse" to receive a Bible verse.</em></div>
+  </section>
+
+  <script>
+    function getVerse() {
+      const verses = [
+        {
+          reference: "John 3:16",
+          text: "For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life."
+        },
+        {
+          reference: "Psalm 23:1",
+          text: "The Lord is my shepherd; I shall not want."
+        },
+        {
+          reference: "Romans 8:28",
+          text: "And we know that in all things God works for the good of those who love Him, who have been called according to His purpose."
+        },
+        {
+          reference: "Philippians 4:13",
+          text: "I can do all things through Christ who strengthens me."
+        }
+      ];
+
+      const random = verses[Math.floor(Math.random() * verses.length)];
+      document.getElementById("verseDisplay").innerHTML = `<strong>${random.reference}</strong><br>${random.text}`;
+    }
+  </script>
 </body>
 </html>
